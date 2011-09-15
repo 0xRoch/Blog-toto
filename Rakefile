@@ -1,35 +1,42 @@
-require 'rubygems'
-require 'rake'
+require 'toto'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "toto"
-    gem.summary = %Q{the tiniest blog-engine in Oz}
-    gem.description = %Q{the tiniest blog-engine in Oz.}
-    gem.email = "self@cloudhead.net"
-    gem.homepage = "http://github.com/cloudhead/toto"
-    gem.authors = ["cloudhead"]
-    gem.add_development_dependency "riot"
-    gem.add_dependency "builder"
-    gem.add_dependency "rack"
-    if RUBY_PLATFORM =~ /win32/
-      gem.add_dependency "maruku"
-    else
-      gem.add_dependency "rdiscount"
+@config = Toto::Config::Defaults
+
+task :default => :new
+
+desc "Create a new article."
+task :new do
+  title = ask('Title: ')
+  slug = title.empty?? nil : title.strip.slugize
+
+  article = {'title' => title, 'date' => Time.now.strftime("%d/%m/%Y")}.to_yaml
+  article << "\n"
+  article << "Once upon a time...\n\n"
+
+  path = "#{Toto::Paths[:articles]}/#{Time.now.strftime("%Y-%m-%d")}#{'-' + slug if slug}.#{@config[:ext]}"
+
+  unless File.exist? path
+    File.open(path, "w") do |file|
+      file.write article
     end
+    toto "an article was created for you at #{path}."
+  else
+    toto "I can't create the article, #{path} already exists."
   end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+desc "Publish my blog."
+task :publish do
+  toto "publishing your article(s)..."
+  `git push heroku master`
 end
 
-task :test => :check_dependencies
-task :default => :test
+def toto msg
+  puts "\n  toto ~ #{msg}\n\n"
+end
+
+def ask message
+  print message
+  STDIN.gets.chomp
+end
+

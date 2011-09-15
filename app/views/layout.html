@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/main.css'}">
+    <link rel="alternate" type="application/atom+xml" title="#{get 'title' /} - feed" href="/index.xml" />
+	#{get 'moreStyles' /}
+	#{get 'moreScripts' /}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <title>#{get 'title' /}</title>
+  </head>
+  <body>
+    <section>
+      #{doLayout /}
+    </section>
+    <footer>
+      powered by <a href="http://D-Ro.ch/toto">toto for Playframework</a>
+    </footer>
+  </body>
+</html>
+
