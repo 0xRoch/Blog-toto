@@ -2,12 +2,12 @@
 #{set title:'Article title' /}
 <article class="post">
   <header>
-    <h1>${title}</h1>
-    <span class="date">${date}</span>
+    <h1>${article.title}</h1>
+    <span class="date">${article.date}</span>
   </header>
 
   <section class="content">
-    ${body.nl2br()}
+    ${article.body.nl2br()}
   </section>
 
   <section class="comments">

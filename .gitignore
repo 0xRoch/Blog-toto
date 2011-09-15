@@ -3,3 +3,8 @@
 coverage
 rdoc
 pkg
+eclipse/
+tmp/
+.settings
+.project
+.classpath
