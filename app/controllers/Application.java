@@ -24,7 +24,13 @@ public class Application extends Controller {
 	static Map<String, Article> q = null;
 
 	@Before
-	public static void init() throws FileNotFoundException, ParseException {
+	public static void loadConf() {
+		//Play.configuration.getProperty("toto.author");
+		
+	}
+
+	@Before
+	public static void loadArticles() throws FileNotFoundException, ParseException {
 		q = (Map<String, Article>) Cache.get("articles");
 		if (q == null) {
 			File dir = Play.getFile("/articles");
@@ -75,18 +81,18 @@ public class Application extends Controller {
 		}
 	}
 	
-    public static void index() {
-    	List<Article> articles = new ArrayList<Article>(q.values());
-        render(articles);
-    }
+    	public static void index() {
+    		List<Article> articles = new ArrayList<Article>(q.values());
+        	render(articles);
+    	}
 
 	public static void article(String slug) {
 		Article article = q.get(slug);
-        render(article);
-    }
+        	render(article);
+    	}
 
 	public static void about() {
-        render();
-    }
+        	render();
+    	}
 
 }
