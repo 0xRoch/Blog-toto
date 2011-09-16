@@ -1,27 +1,26 @@
-toto
-====
+toto - play
+===========
 
 the tiniest blogging engine in Oz!
 
 introduction
 ------------
 
-toto is a git-powered, minimalist blog engine for the hackers of Oz. The engine weighs around ~300 sloc at its worse.
-There is no toto client, at least for now; everything goes through git.
+toto is a git-powered, minimalist blog engine for the hackers of Oz. There is no toto client, at least for now; everything goes through git.
 
 blog in 10 seconds
 ------------------
 
     $ git clone git://github.com/cloudhead/dorothy.git myblog
     $ cd myblog
-    $ heroku create myblog
+    $ heroku create -s cedar myblog
     $ git push heroku master
 
 philosophy
 ----------
 
 Everything that can be done better with another tool should be, but one should not have too much pie to stay fit.
-In other words, toto does away with web frameworks or DSLs such as sinatra, and is built right on top of **rack**.
+In other words, toto is built right on top of **Playframework**.
 There is no database or ORM either, we use plain text files.
 
 Toto was designed to be used with a reverse-proxy cache, such as [Varnish](http://varnish-cache.org).
@@ -35,8 +34,7 @@ how it works
 - content is entirely managed through **git**; you get full fledged version control for free.
 - articles are stored as _.txt_ files, with embeded metadata (in yaml format).
 - articles are processed through a markdown converter (rdiscount) by default.
-- templating is done through **ERB**.
-- toto is built right on top of **Rack**.
+- toto-play is built right on top of **Playframework**.
 - toto was built to take advantage of _HTTP caching_.
 - toto was built with heroku in mind.
 - comments are handled by [disqus](http://disqus.com)
@@ -50,8 +48,7 @@ dorothy
 -------
 
 Dorothy is toto's default template, you can get it at <http://github.com/cloudhead/dorothy>. It
-comes with a very minimalistic but functional template, and a _config.ru_ file to get you started.
-It also includes a _.gems_ file, for heroku.
+comes with a very minimalistic but functional template, and a config file to get you started.
 
 synopsis
 --------
@@ -100,30 +97,13 @@ Once he finishes writing his beautiful tale, one can push to the git repo, as us
 
 Where `remote` is the name of your remote git repository. The article is now published.
 
-### deployment
-
-Toto is built on top of **Rack**, and hence has a **rackup** file: _config.ru_.
-
-#### on your own server
-
-Once you have created the remote git repo, and pushed your changes to it, you can run toto with any Rack compliant web server,
-such as **thin**, **mongrel** or **unicorn**.
-
-With thin, you would do something like:
-
-    $ thin start -R config.ru
-
-With unicorn, you can just do:
-
-    $ unicorn
-
 #### on heroku
 
 Toto was designed to work well with [heroku](http://heroku.com), it makes the most out of it's state-of-the-art caching,
 by setting the _Cache-Control_ and _Etag_ HTTP headers. Deploying on Heroku is really easy, just get the heroku gem,
 create a heroku app with `heroku create`, and push with `git push heroku master`.
 
-    $ heroku create weblog
+    $ heroku create -s weblog
     $ git push heroku master
     $ heroku open
 
@@ -157,6 +137,6 @@ thanks
 
 To heroku for making this easy as pie.
 To adam wiggins, as I stole a couple of ideas from Scanty.
-To the developpers of Rack, for making such an awesome platform.
+To cloudhead for the original version of toto.
 
-Copyright (c) 2009-2010 cloudhead. See LICENSE for details.
+Copyright (c) 2011 Roch Delsalle. See LICENSE for details.
