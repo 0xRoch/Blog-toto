@@ -63,17 +63,17 @@ One would then edit the template at will, it has the following structure:
 
     templates/
     |
-    +- layout.rhtml      # the main site layout, shared by all pages
+    +- layout.html      # the main site layout, shared by all pages
     |
     +- index.builder     # the builder template for the atom feed
     |
     +- pages/            # pages, such as home, about, etc go here
        |
-       +- index.rhtml    # the default page loaded from `/`, it displays the list of articles
+       +- index.html    # the default page loaded from `/`, it displays the list of articles
        |
-       +- article.rhtml  # the article (post) partial and page
+       +- article.html  # the article (post) partial and page
        |
-       +- about.rhtml
+       +- about.html
 
 One could then create a .txt article file in the `articles/` folder, and make sure it has the following format:
 
