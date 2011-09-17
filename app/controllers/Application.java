@@ -26,7 +26,7 @@ public class Application extends Controller {
 	@Before
 	public static void loadConf() {
 		//Play.configuration.getProperty("toto.author");
-		
+		//Play.configuration.getProperty("toto.author");
 	}
 
 	@Before
@@ -56,7 +56,7 @@ public class Application extends Controller {
 			            	  break;
 			              case 3:
 			            	  article.date = formatter.parse(tokens[1]);
-			            	  article.slug = tokens[1]+"/"+article.title.replace(" ", "-");
+			            	  article.slug = article.title.replace(" ", "-");
 			            	  break;
 			          }
 			        } else {
@@ -73,7 +73,6 @@ public class Application extends Controller {
 			    } catch (IOException e) {
 			      e.printStackTrace();
 			    }
-			    System.out.print(article.slug);
 				newMap.put(article.slug, article);
 			}
 			q = newMap;
@@ -81,18 +80,18 @@ public class Application extends Controller {
 		}
 	}
 	
-    	public static void index() {
-    		List<Article> articles = new ArrayList<Article>(q.values());
-        	render(articles);
-    	}
+	public static void index() {
+		List<Article> articles = new ArrayList<Article>(q.values());
+    	render(articles);
+	}
 
-	public static void article(String slug) {
+	public static void article(String yyyy, String MM, String dd, String slug) {
 		Article article = q.get(slug);
-        	render(article);
-    	}
+    	render(article);
+	}
 
 	public static void about() {
-        	render();
-    	}
+    	render();
+	}
 
 }

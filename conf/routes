@@ -5,6 +5,8 @@
 # Home page
 GET     /                                       Application.index
 
+GET		/{yyyy}/{MM}/{dd}/{slug}				Application.article
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
