@@ -5,6 +5,8 @@ rdoc
 pkg
 eclipse/
 tmp/
+lib/
+modules/
 .settings
 .project
 .classpath
