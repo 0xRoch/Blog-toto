@@ -87,7 +87,8 @@ public class Application extends Controller {
 
 	public static void article(String yyyy, String MM, String dd, String slug) {
 		Article article = q.get(slug);
-    	render(article);
+		String disqus = Play.configuration.getProperty("toto.disqus");
+    	render(article, disqus);
 	}
 
 	public static void page(String page) {
