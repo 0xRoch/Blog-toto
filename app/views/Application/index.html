@@ -9,7 +9,7 @@
       </header>
 
       <section class="content">
-        ${article.body}
+        ${article.body.markdown().raw()}
       </section>
       <div class="more"><a href="@{Application.article(article.date.format('yyyy'), article.date.format('MM'), article.date.format('dd'), article.slug)}">read on &raquo;</a></div>
     </article>
