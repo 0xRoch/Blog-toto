@@ -1,0 +1,5 @@
+title: How to replace a word in multiple files / subdirectories
+author: Roch Delsalle
+date: 2011/06/24
+
+	find . -name "*.php" -print | xargs sed -i 's/OldWord/NewWord/g'

@@ -1,4 +1,4 @@
-title: Google App Engine - CloudFlare and Google Bot's Crawlrate
+title: My Review of Cloudflare
 author: Roch Delsalle
 date: 2011/07/21
 
