@@ -1,0 +1,19 @@
+title: Google App Engine - CloudFlare and Google Bot's Crawlrate
+author: Roch Delsalle
+date: 2011/09/11
+
+Recently Google App Engine's team announced some big changes in their pricing.
+
+There has been a lot of bad buzz on the newsgroup, on guy even said : [Googlebot is your Enemy][1]. Well yes, while Google is crawling your content you have to pay for servers and bandwidth but at the same time blocking Googlebot would destroy your SEO.
+
+The fact that Google App Engine users can't manage their crawl rate in Google Webmaster Tools is wrong, and I don't really understand why they want it this way.
+
+I wanted to see what happen if I use a round robin proxy on top of my GAE application and the result was very impressive :
+
+<img alt="app engine - cloudflare crawlrate" src="http://www.d-ro.ch/dl/appengine-cloudflare-crawlrate.png" style="width: 536px; height: 177px; " />
+
+Basicaly, Cloudflare was activated from June to August, then I disabled it and reactivated it in September. As you can see on the graphic, my crawl rate is way better when my app is served by a proxy.
+
+I'm not a SEO expert, but one thing I know for sure is that when I have a high crawl rate my indexing is increasing. What's going on is not very clear to me, but it looks like GAE applications are disadvantaged.Â 
+
+ [1]: https://groups.google.com/forum/#!msg/google-appengine/PhDMnRsYpLs/oYckoWlZyeUJ
