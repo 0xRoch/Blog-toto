@@ -1,0 +1,15 @@
+title: Github : Keep your fork up to date
+author: Roch Delsalle
+date: 2011/06/20
+
+Add the main project :
+
+	git remote add upstream git://github.com/UserProject/User.git
+
+Fetch the changes:
+
+	git fetch upstream
+
+Bring master of your personal fork-clone up-to-date:
+
+	git checkout master && git merge upstream/master.

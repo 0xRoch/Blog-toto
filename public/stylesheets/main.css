@@ -22,7 +22,7 @@ body>header>h1{border-left:30px solid black;padding-left:30px;font-size:201px;ma
 body>header{display:block;padding-top:30px;line-height:180px;margin-bottom:20px;}
 h1,h2,h3,h4{display:inline;margin:0;font-weight:600;}
 ul,li{list-style-type:none;}
-code{font-family:'Anonymous Pro','Bitstream Vera Sans','Monaco',Courier,mono;}
+code{font-family:'Anonymous Pro','Bitstream Vera Sans','Monaco',Courier,mono;font-size:12px;}
 pre{padding:20px;}
 blockquote{font-style:italic;}
 body>footer{text-align:left;margin-left:10px;font-style:italic;font-size:18px;color:#888;}
