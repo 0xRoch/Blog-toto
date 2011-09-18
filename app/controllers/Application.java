@@ -90,8 +90,8 @@ public class Application extends Controller {
     	render(article);
 	}
 
-	public static void about() {
-    	render();
-	}
+	public static void page(String page) {
+    	render(page + ".html");
+    }
 
 }
