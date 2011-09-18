@@ -1,0 +1,7 @@
+title: Javascript deobfuscator
+author: Roch Delsalle
+date: 2011/07/24
+
+I recently found a service that can be used to deobfuscate code, you can check it out on <http://jsbeautifier.org>. Its source is also available on [Github][1].
+
+ [1]: http://github.com/einars/js-beautify
