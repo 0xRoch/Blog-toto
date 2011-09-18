@@ -7,7 +7,7 @@ This small experiment is hosted on [Heroku][2] and you can find the source on [G
 
 It also went recursive on [hackernews ][5]!
 
-<img alt="" src="http://www.d-ro.ch/dl/hackernews-treemap.png" style="width: 500px; height: 299px; " />
+![hackernews treemap](http://www.d-ro.ch/dl/hackernews-treemap.png)
 
  [1]: http://www.hackrnews.com
  [2]: http://www.heroku.com
