@@ -1,0 +1,78 @@
+title: Playframework : Import you GAE Datastore and use it in local
+author: Roch Delsalle
+date: 2011/09/11
+
+This small guide tells you how to download your data from your Google App Engine application and use it in your local.  
+For now, I have onlyÂ tested those steps on Mac OSX.
+
+First, you will need to enable the remote_api if it's not already done.  
+By default, Play-gae doesn't use any web.xml file so you are going to need to create one in the /war/WEB-INF folder.
+
+This is my web.xml file feel free to copy it :
+
+<?xml version="1.0" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+        version="2.4">
+  
+  <display-name>My SuperCool Application powered by Playframework</display-name>
+  
+  <context-param>
+    <param-name>play.id</param-name>
+    <param-value>prod</param-value>
+  </context-param>
+  
+  <listener>
+      <listener-class>play.server.ServletWrapper</listener-class>
+  </listener>
+  
+  <servlet>
+    <servlet-name>play</servlet-name>
+    <servlet-class>play.server.ServletWrapper</servlet-class>	
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>play</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <display-name>Remote API Servlet</display-name>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoteApiServlet</servlet-name>
+    <url-pattern>/remote_api</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+For some reasons I can't really explain, you will need to disable Federated Login in your App Engine's Application Settings.
+
+The next step is to install Google App Engine's Python SDK in order to be able to useÂ the remote api and download all your data.  
+Â 
+
+Once you have installed it you will be able to download it using the following command :
+
+**appcfg.py download\_data --application=my-app --url=http://my-app.appspot.com/remote\_api --filename=data.csv**
+
+Then you need to package your application into a WAR archive :
+
+**play war -o ../package.war**
+
+It's now time to start your application in local !:
+
+**dev_appserver.sh package.war**
+
+Once your app is started just open a browser and go to the following url, you will be asked to setup a remote_api user :
+
+**http://localhost:8080/remote_api**
+
+Then you can upload your data to the local server :
+
+**appcfg.py upload\_data --url=http://localhost:8080/remote\_api --filename=data.csv**
+
+If you are on OSX you will need to be running Charles Web Debbugging Proxy to get it working ... Â yeah, I have no clue why it works only when Charles is running.
