@@ -3,7 +3,7 @@ author: Roch Delsalle
 date: 2011/09/11
 
 This small guide tells you how to download your data from your Google App Engine application and use it in your local.  
-For now, I have onlyÂ tested those steps on Mac OSX.
+For now, I have only tested those steps on Mac OSX.
 
 First, you will need to enable the remote_api if it's not already done.  
 By default, Play-gae doesn't use any web.xml file so you are going to need to create one in the /war/WEB-INF folder.
