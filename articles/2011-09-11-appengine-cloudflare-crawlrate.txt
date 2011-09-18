@@ -10,7 +10,7 @@ The fact that Google App Engine users can't manage their crawl rate in Google We
 
 I wanted to see what happen if I use a round robin proxy on top of my GAE application and the result was very impressive :
 
-![app engine - cloudflare crawlrate](http://www.d-ro.ch/dl/appengine-cloudflare-crawlrate.png)
+![app engine cloudflare crawlrate](http://www.d-ro.ch/dl/appengine-cloudflare-crawlrate.png)
 
 Basicaly, Cloudflare was activated from June to August, then I disabled it and reactivated it in September. As you can see on the graphic, my crawl rate is way better when my app is served by a proxy.
 

@@ -1,0 +1,19 @@
+title: Google App Engine - CloudFlare and Google Bot's Crawlrate
+author: Roch Delsalle
+date: 2011/07/21
+
+I recently started using Cloudfare on some of my websites, and here is my review of this service.  
+At first sight it looks like a very attractive Round-robin proxy that can be used as a CDN for cheap. I thought that would be a great way to reduce my usage on Google App Engine.  
+A free plan with unlimited bandwidth ... well that sounds good ! Almost every CDNs are priced on usage so I'm not sure how they are planning to keep a good quality of service but for now it's fine but if they can save me some money in bandwidth I'm okay with that.  
+The good thing about Cloudflare is that you don't have to worry about any technical implementation, image upload, cache invalidation or whatever: It's really easy to setup, you just need update your domain's DNS. And to be honest that takes less than 5 minutes.  
+So that's good, plus they have quite a lot of nice things like css/js/html minifiers or hotlink protection preventing other websites to use your images.  
+Now let's talk about the bad things ! One of the main feature of Cloudflare is to offer a captcha protection and challengeÂ threatening visitors, well that sounds good too until it starts bothering you all the time as if you are a security threat. I basically turned this thing off.  
+I also tried their SSL service which looks awesome : the service is supposed to activate HTTPS on your domain with zero conf. Well that's great but does it work?  
+It took me a week to get their validation (2 business days were announced). Well that would be okay if the damn thing worked in the end but no all I got was "Cloudflare error" and nothing else.  
+
+![cloudflare error](http://www.d-ro.ch/dl/cloudflare-review)
+
+I'm aware that it could be coming from my server configuration and that's not necessarily cloudflare's fault but "Cloudflare error" doesn't mean anything to me. Cloudflare would be much better if it wasn't a blackbox.
+
+
+Conclusion: I'll keep using Cloudflare on my main domain for now but I'm a bit skeptical about the quality of this service, the idea and the pricing are great but it's a bit obscure. It would be great to have access and error logs for now It's just too much marketing.
