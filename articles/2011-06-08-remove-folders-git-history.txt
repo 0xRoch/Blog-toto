@@ -1,0 +1,7 @@
+title: How to remove folders from Git History
+author: Roch Delsalle
+date: 2011/06/08
+
+	git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ./heavy/folder"
+
+

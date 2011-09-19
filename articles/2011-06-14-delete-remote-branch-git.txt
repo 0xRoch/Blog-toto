@@ -1,0 +1,7 @@
+title: How to delete a remote branch with Git
+author: Roch Delsalle
+date: 2011/06/14
+
+	git push origin :nameOfTheBranch
+
+
