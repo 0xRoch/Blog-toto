@@ -1,0 +1,5 @@
+title: Le Pandaranol
+author: Roch Delsalle
+date: 2011/06/06
+
+Le Pandaranol n'est pas une espece de panda, c'est un concours SEO.

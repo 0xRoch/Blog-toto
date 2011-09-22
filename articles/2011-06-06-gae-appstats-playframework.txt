@@ -1,0 +1,17 @@
+title: How to use GAE AppStats with Playframework
+author: Roch Delsalle
+date: 2011/06/06
+
+Use the war command to generate a web.xml file.
+
+	play war -o ./tmpfolder/
+
+Move it to your war folder
+
+	mv ./tmpfolder/WEB-INF/web.xml ./war/WEB-INF/web.xml
+
+Remove the tmp folder
+
+	rm -r ./tmpfolder/
+
+Activate AppStats and add the routes to the web.xml file (before )
