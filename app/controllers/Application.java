@@ -49,10 +49,22 @@ public class Application extends Controller {
 			          String[] tokens = line.split(": ");
 		              switch (count) {
 			              case 1:
-			            	  article.title = tokens[1];
+			            	  for (int x = 1; x < tokens.length; x++) {
+			            		  if (article.title != null) {
+			            			  article.title += tokens[x];
+			            		  } else {
+			            			  article.title = tokens[x];
+			            		  }
+			            	  }
 			              	  break;
 			              case 2:
-			            	  article.author = tokens[1];
+			            	  for (int x = 1; x < tokens.length; x++) {
+			            		  if (article.author != null) {
+			            			  article.author += tokens[x];
+			            		  } else {
+			            			  article.author = tokens[x];
+			            		  }
+			            	  }
 			            	  break;
 			              case 3:
 			            	  article.date = formatter.parse(tokens[1]);
