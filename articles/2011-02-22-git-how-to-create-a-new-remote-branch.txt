@@ -1,0 +1,21 @@
+title: GIT: How to create a new remote branch
+author: Roch Delsalle
+date: 2011/03/08
+
+1. Create the remote branch 
+
+	git push origin origin:refs/heads/new_feature_name
+
+2. Make sure everything is up-to-date 
+
+	git fetch origin
+
+3. Then you can see that the branch is created. 
+
+	git branch -r
+
+This should show ‘origin/new_feature_name’ 
+
+4. Start tracking the new branch 
+
+	git checkout –track -b new_feature_name origin/new_feature_name

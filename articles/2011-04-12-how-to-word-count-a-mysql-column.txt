@@ -1,0 +1,5 @@
+title: Return a HTTP Response code
+author: Roch Delsalle
+date: 2011/04/12
+
+	SELECT SUM( LENGTH(name) - LENGTH(REPLACE(name, ' ', ''))+1) FROM table

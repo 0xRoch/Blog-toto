@@ -1,0 +1,5 @@
+title: How to generate a random string in MySQL
+author: Roch Delsalle
+date: 2011/05/31
+
+	SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 6)

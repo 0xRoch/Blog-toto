@@ -1,0 +1,90 @@
+title: How to mirror your website on Amazon S3
+author: Roch Delsalle
+date: 2011/03/08
+
+First, you need to fetch your website using wget:
+
+
+
+wget -r -k -E -p -U Mozilla http://domain.com -c --force-html
+
+
+
+Then we upload it all to amazon s3:
+
+
+
+php5 import.php
+
+
+
+include_once('./s3.php');
+
+try {
+
+  //AWS access info
+
+  if (!defined('awsAccessKey'))
+
+    define('awsAccessKey', 'MYACCESSKEY');
+
+  if (!defined('awsSecretKey'))
+
+    define('awsSecretKey', 'MYSECRETKEY');
+
+
+
+  function listFolder($folder = ".") { // Fonction qui liste un dossier de façon récursive
+
+    $s3 = new S3(awsAccessKey, awsSecretKey);
+
+    if (is_dir($folder)) {
+
+      if ($folderOpen = opendir($folder)) {
+
+        while (($file = readdir($folderOpen)) !== false) {
+
+          if ($file == ".." || $file == "." || $file == "index.php") {
+
+            continue;
+
+          } else {
+
+            if (is_dir("$folder/$file"))
+
+              listeDossier("$folder/$file");
+
+            else
+
+              $paths[] = "$folder/$file";
+
+          }
+
+        }
+
+      }
+
+    }
+
+    foreach ($paths as $path) {
+
+      $chemin = explode('/', $path, 2);
+
+      $s3->putObject($s3->inputResource(fopen('domain.com/' . $chemin[1], 'r'), filesize('domain.com/' . $chemin[1])), 'subdomain.domain.com', $chemin[1], S3::ACL_PUBLIC_READ, null, array('Content-Type' => 'text/html'));
+
+    }
+
+  }
+
+  
+
+  listFolder('domain.com');
+
+  
+
+} catch (Exception $e) {}
+
+
+
+The s3 php class can be found on this website http://undesigned.org.za/2007/10/22/amazon-s3-php-class
+

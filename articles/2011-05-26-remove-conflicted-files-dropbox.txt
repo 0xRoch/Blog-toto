@@ -1,0 +1,5 @@
+title: How to remove conflicted files from Dropbox
+author: Roch Delsalle
+date: 2011/05/26
+
+	find . -type f -name "* conflicted *" -exec rm -f {} \;

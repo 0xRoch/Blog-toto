@@ -1,0 +1,5 @@
+title: Return a HTTP Response code
+author: Roch Delsalle
+date: 2011/05/11
+
+	wget --delete-after site.com 2>&1|egrep "HTTP|Length|saved" | head -1 | sed s/"HTTP request sent, awaiting response... "//

@@ -1,0 +1,5 @@
+title: How to sync installed packages between computers
+author: Roch Delsalle
+date: 2011/02/22
+
+	dpkg --get-selections > installed-software dpkg --set-selections < installed-software dselect

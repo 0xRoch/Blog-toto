@@ -1,0 +1,29 @@
+title: How to generate a random string in MySQL
+author: Roch Delsalle
+date: 2011/05/26
+
+$(document).ready(function() {
+
+    $('.insite').live("click", function(ev) {
+
+    var href = $(this).attr('href');
+
+        if ( history.pushState ) history.pushState( {}, document.title, href);
+
+        ev.preventDefault();
+
+        $('#content').fadeOut().load(href+' #content', function() {
+
+                $(this).fadeIn();
+
+                _gaq.push(['_trackPageview', href ]);
+
+		//window.disqus_no_style = true;
+
+		//$.getScript("http://disqus.com/forums/mnml/embed.js")
+
+            });
+
+    });
+
+});
