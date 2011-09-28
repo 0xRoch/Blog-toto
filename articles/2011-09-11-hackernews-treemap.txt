@@ -2,15 +2,9 @@ title: Hackernews TreeMap Representation
 author: Roch Delsalle
 date: 2011/09/11
 
-A few days ago I found newsmap.jp : It's a nice way to visualize news. I decided to create the same kind of [TreeMap representation][1] but for the hackernews feed.  
-This small experiment is hosted on [Heroku][2] and you can find the source on [Github][3]. It was made using [Playframework][4], InfoVisÂ and the Hacknews Api.
+A few days ago I found newsmap.jp : It's a nice way to visualize news. I decided to create the same kind of [TreeMap representation](http://www.hackrnews.com) but for the hackernews feed.  
+This small experiment is hosted on [Heroku](http://www.heroku.com) and you can find the source on [Github](https://github.com/D-Roch/hackrnews). It was made using [Playframework](http://www.playframework.org), InfoVisÂ and the Hacknews Api.
 
-It also went recursive on [hackernews ][5]!
+It also went recursive on [hackernews ](http://news.ycombinator.com/item?id=2982458)
 
-![hackernews treemap](http://www.d-ro.ch/dl/hackernews-treemap.png)
-
- [1]: http://www.hackrnews.com
- [2]: http://www.heroku.com
- [3]: https://github.com/D-Roch/hackrnews
- [4]: http://www.playframework.org
- [5]: http://news.ycombinator.com/item?id=2982458
+![hackernews treemap](/public/images/assets/hackernews-treemap.png)
