@@ -3,21 +3,12 @@ author: Roch Delsalle
 date: 2011/03/18
 
 	"getParameter": function(name) {
-
-    		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-
-    		var regexS = "[\\?&]"+name+"=([^&#]*)";
-
-    		var regex = new RegExp( regexS );
-
-    		var results = regex.exec( window.location.href );
-
-    		if( results == null )
-
-      			return "";
-
-    		else
-
-      			return results[1];
-
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec( window.location.href );
+	  if( results == null )
+      	    return "";
+	  else
+	    return results[1];
  	}

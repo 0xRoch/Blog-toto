@@ -2,4 +2,8 @@ title: How to sync installed packages between computers
 author: Roch Delsalle
 date: 2011/02/22
 
-	sudo aticonfig --initial -f aticonfig --adapter=0 --od-gettemperature aticonfig --pplib-cmd "set fanspeed 0 100" aticonfig --pplib-cmd "set fanspeed 0 auto" aticonfig --adapter=0 --od-getclocks
+	sudo aticonfig --initial -f 
+	aticonfig --adapter=0 --od-gettemperature 
+	aticonfig --pplib-cmd "set fanspeed 0 100" 
+	aticonfig --pplib-cmd "set fanspeed 0 auto" 
+	aticonfig --adapter=0 --od-getclocks
