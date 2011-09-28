@@ -7,4 +7,4 @@ This small experiment is hosted on [Heroku](http://www.heroku.com) and you can f
 
 It also went recursive on [hackernews ](http://news.ycombinator.com/item?id=2982458)
 
-![hackernews treemap](/public/images/assets/hackernews-treemap.png)
+![hackernews treemap](/public/images/hackernews-treemap.jpg)

@@ -11,7 +11,7 @@ Now let's talk about the bad things ! One of the main feature of Cloudflare is t
 I also tried their SSL service which looks awesome : the service is supposed to activate HTTPS on your domain with zero conf. Well that's great but does it work?  
 It took me a week to get their validation (2 business days were announced). Well that would be okay if the damn thing worked in the end but no all I got was "Cloudflare error" and nothing else.  
 
-![cloudflare error](/public/images/assets/cloudflare-review.png)
+![cloudflare error](/public/images/cloudflare-review.jpg)
 
 I'm aware that it could be coming from my server configuration and that's not necessarily cloudflare's fault but "Cloudflare error" doesn't mean anything to me. Cloudflare would be much better if it wasn't a blackbox.
 
