@@ -1,7 +1,0 @@
-title: How to use GAE AppStats with Playframework
-author: Roch Delsalle
-date: 2011/05/31
-
-	git remote add branchB git@github.com:user/repo.git
-	git pull branchB
-	git pull branchB master
